@@ -11,7 +11,7 @@ HTML5
 
 CSS3
 
-JavaScript 
+JavaScript
 
 OpenAI API (AI chatbot)
 
@@ -25,7 +25,6 @@ Project Structure
 HOme page.html
 PRODUCT LISTING.html
 CONTACT + MAP + CHATBOT PAGE.html
-
 
 How to Run the Project Locally:
 
