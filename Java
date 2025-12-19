@@ -1,0 +1,115 @@
+// NEVER commit your real API key to GitHub.
+
+// This should be stored in environment variables or handled on a backend.
+
+const API_KEY = "YOUR_sk-proj-R572E0HDgOCZMjBWbZvvDn2sLL4E18k9rdccJZ7L3UYHrjqwxsFboEEWf_wAIy28ojJZ93Uvw2T3BlbkFJzkKJa3FqoG9aWA_kWGq71gxqcDmy9PhyXictVq7HYcZTCNZGTA4FG1cgjbtGjkfnM0C1xQZxYA"; // ❌ NEVER COMMIT THIS
+ 
+// ID of the button in the HTML that the user clicks to send a request
+
+const submitButton = document.getElementById("submit-button");
+ 
+// ID of the HTML element where responses and errors are displayed
+
+const output = document.getElementById("output");
+ 
+// Helper function to show text output to the user
+
+function show(text) {
+
+    output.hidden = false;      // Ensure the output element is visible
+
+    output.textContent = text;  // Set the displayed text
+
+}
+ 
+// Event listener triggered when the user clicks the submit button
+
+// Marked async so we can use await for network requests
+
+submitButton.addEventListener("click", async () => {
+ 
+    // Safety check: stop execution if the API key is missing or unchanged
+
+    if (!API_KEY || API_KEY === "YOUR_API_KEY_HERE") {
+
+        show("Error: API key is missing.");
+
+        return;
+
+    }
+ 
+    // Inform the user that the request is being processed
+
+    show("Processing request...");
+
+    submitButton.disabled = true; // Prevent multiple clicks while request is running
+ 
+    try {
+
+        // Send an HTTP POST request to the OpenAI Chat Completions API
+
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json",        // Request body is JSON
+
+                "Authorization": `Bearer ${API_KEY}`       // API authentication
+
+            },
+
+            body: JSON.stringify({
+
+                model: "gpt-4o-mini",                      // Model used for the request
+
+                messages: [
+
+                    { role: "user", content: "Hello!" }    // User prompt sent to the model
+
+                ]
+
+            })
+
+        });
+ 
+        // Handle HTTP-level errors (4xx / 5xx)
+
+        if (!res.ok) {
+
+            throw new Error(`HTTP ${res.status}`);
+
+        }
+ 
+        // Parse the JSON response body
+
+        const data = await res.json();
+ 
+        // Safely extract the model's reply or fall back if missing
+
+        const text =
+
+            data.choices?.[0]?.message?.content ?? "(no response)";
+ 
+        // Display the response to the user
+
+        show(text);
+ 
+    } catch (err) {
+
+        // Catch network, parsing, or API errors
+
+        show("Error: " + (err?.message || err));
+
+    } finally {
+
+        // Re-enable the button whether the request succeeded or failed
+
+        submitButton.disabled = false;
+
+    }
+
+});
+
+ 
