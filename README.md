@@ -1,23 +1,23 @@
 Sustainable Food Delivery Webshop
-Project Description
 
+Project Description:
 This project is a frontend-only website developed for the Frontend Essentials course. The website represents a sustainable food delivery service that connects customers with local farms in Norway. The goal of the project is to demonstrate frontend web development skills, accessibility awareness, API integration, and the use of an AI-powered chatbot.
 
 The project does not include any backend or database functionality and runs entirely in the browser.
 
-Technologies Used
+Technologies Used:
 
 HTML5
 
 CSS3
 
-JavaScript (ES6+)
+JavaScript 
 
 OpenAI API (AI chatbot)
 
 Map API (partner farm locations)
 
-Git and GitHub
+GitHub
 
 Visual Studio Code
 
@@ -26,18 +26,8 @@ HOme page.html
 PRODUCT LISTING.html
 CONTACT + MAP + CHATBOT PAGE.html
 
-style.css
-main.js
-products.js
-map.js
-chatbot.js
 
-assets/
-  images/
-
-README.md
-
-How to Run the Project Locally
+How to Run the Project Locally:
 
 Download or clone the repository from GitHub.
 
@@ -49,7 +39,7 @@ Right-click on HOme page.html and select Open with Live Server.
 
 The website will open in your browser.
 
-Website Pages
+Website Pages:
 
 Home Page
 Introduces the sustainable food delivery service and its mission.
@@ -66,7 +56,7 @@ A map showing partner farm locations
 
 An AI-powered chatbot for customer support
 
-AI Chatbot
+AI Chatbot:
 
 The chatbot is integrated using the OpenAI API and is designed to answer general questions about the service, products, and sustainability practices.
 
@@ -78,7 +68,7 @@ The API key is not committed to GitHub.
 
 Users are advised not to share personal or sensitive information.
 
-Accessibility
+Accessibility:
 
 The website includes basic accessibility features such as:
 
